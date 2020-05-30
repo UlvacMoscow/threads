@@ -25,6 +25,7 @@ task1 = threading.Thread(target=ping)
 task2 = threading.Thread(target=pong)
 
 task1.start()
+time.sleep(0.1)
 task2.start()
 
 task1.join()
