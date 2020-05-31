@@ -13,6 +13,8 @@ def producer():
 
 max_workers = 3
 lock = threading.BoundedSemaphore(value=max_workers)
+# lock = threading.Semaphore(value=max_workers) позволяет вызывать неограниченное кол-вл release
+
 
 task1 = threading.Thread(target=producer, name="task1")
 task2 = threading.Thread(target=producer, name="task2")
