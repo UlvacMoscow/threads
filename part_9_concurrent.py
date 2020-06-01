@@ -25,3 +25,23 @@ def run_by_exexutor(executor_class, max_workers=4):
 	)
 
 
+def run_by_exexutor_map(executor_class, max_workers=4):
+	executor = executor_class(max_workers=max_workers)
+	started = time.time()
+	params = [
+		[0, 2 ** 26],
+		[2 ** 26, 2 **28]
+	]
+	result = sum(executor.map(handler, *params))
+	print("Result {result}, Time for {executor}: {spent_time}".format(
+			result=result,
+			executor=executor_class.__name__,
+			spent_time=time.time() - started
+		)
+	)
+
+print("Execute using map...")
+run_by_exexutor_map(ThreadPoolExecutor)
+run_by_exexutor_map(ProcessPoolExecutor)
+
+
