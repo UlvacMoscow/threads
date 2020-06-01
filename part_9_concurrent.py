@@ -44,4 +44,8 @@ print("Execute using map...")
 run_by_exexutor_map(ThreadPoolExecutor)
 run_by_exexutor_map(ProcessPoolExecutor)
 
+print("Execute using submit...")
+run_by_exexutor(ThreadPoolExecutor)
+run_by_exexutor(ProcessPoolExecutor)
+
 
